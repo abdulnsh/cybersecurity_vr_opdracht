@@ -13,7 +13,7 @@ VBoxManage storageattach "Kali_Linux_VM" --storagectl "SATA Controller" --port 0
 
 # Configureer netwerkinstellingen voor NAT en stel statisch IP-adres in
 VBoxManage modifyvm "Kali_Linux_VM" --nic1 nat --macaddress1 "080027000001"
-VBoxManage guestproperty set "Kali_Linux_VM" "/VirtualBox/GuestInfo/Net/0/V4/IP" "192.168.1.100"
+VBoxManage guestproperty set "Kali_Linux_VM" "/VirtualBox/GuestInfo/Net/0/V4/IP" "192.168.1.9"
 VBoxManage guestproperty set "Kali_Linux_VM" "/VirtualBox/GuestInfo/Net/0/V4/Netmask" "255.255.255.0"
 VBoxManage guestproperty set "Kali_Linux_VM" "/VirtualBox/GuestInfo/Net/0/V4/Gateway" "10.0.2.2"
 
