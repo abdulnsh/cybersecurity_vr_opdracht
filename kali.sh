@@ -11,6 +11,12 @@ VBoxManage storagectl "Kali_Linux_VM" --name "SATA Controller" --add sata --cont
 
 VBoxManage storageattach "Kali_Linux_VM" --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium "D:\HOGENT\TI Netwerken\Semester 2\Cybersecurity & Virtualisation\Kali Linux 2023.4 (64bit).vdi"
 
+# Configureer netwerkinstellingen voor NAT en stel statisch IP-adres in
+VBoxManage modifyvm "Kali_Linux_VM" --nic1 nat --macaddress1 "080027000001"
+VBoxManage guestproperty set "Kali_Linux_VM" "/VirtualBox/GuestInfo/Net/0/V4/IP" "192.168.1.100"
+VBoxManage guestproperty set "Kali_Linux_VM" "/VirtualBox/GuestInfo/Net/0/V4/Netmask" "255.255.255.0"
+VBoxManage guestproperty set "Kali_Linux_VM" "/VirtualBox/GuestInfo/Net/0/V4/Gateway" "10.0.2.2"
+
 # Start de VM
 VBoxManage startvm "Kali_Linux_VM"
 
