@@ -12,7 +12,7 @@ SMBGhost Vulnerability
 * Run het bash script `./windwos1909.sh` om de Windows VM op te starten.
 
 ## Stap 3
-* Open kali en windows VM
-* wachtwoord kali 
-
-## Stap 4
+* Open de Kali en Windows VM
+* Kali inloggegevens (default)
+* username: osboxes
+* wachtwoord: osboxes.org
