@@ -10,8 +10,8 @@ OFFSETS = {
     'srvnet!SrvNetWskConnDispatch': 0x2D170,
     'srvnet!imp_IoSizeofWorkItem': 0x32210,
     'srvnet!imp_RtlCopyUnicodeString': 0x32288,
-    'nt!IoSizeofWorkItem': 0x12C370,
-    'nt!MiGetPteAddress': 0xBAFA8
+    'nt!IoSizeofWorkItem': 0x12C380,
+    'nt!MiGetPteAddress': 0xBADC8
 }
 
 # The number of iterations for some of the operations, as part of an attempt to
