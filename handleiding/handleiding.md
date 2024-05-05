@@ -43,6 +43,8 @@ Alle informatie en documentatie is beschikbaar op onze github repo:
 | Windows 10-1909 | 192.168.1.17 |
 | Kali Linux VM   | 192.168.1.20 |
 
+* Ip adressen kunnen veranderen (best checken)
+
 ## Inleiding
 
 Hier vermelden onze gebruikte bronnen: 
@@ -64,7 +66,7 @@ Offsets zijn specifieke geheugenadressen binnen bepaalde DLL's of system modules
 | nt!IoSizeofWorkItem              | 0x12C380        | 0x12C400                          | 0x6D7A0         | 0x12C410        | 0x12C370        |
 | nt!MiGetPteAddress               | 0xBADC8         | 0xBA9F8                           | 0xF1D28         | 0xBA968         | 0xBAFA8         |
 
-Voor onze versie (18363.365) hebben we de volgende nodig :
+Voor onze versie (18363.418) hebben we de volgende nodig :
 
 * 'srvnet!SrvNetWskConnDispatch': 0x2D170,   
 => Deze offset wijst bijvoorbeeld naar een functie in de srvnet module die wordt gebruikt voor het dispatchen van netwerkverbindingen. Het offsetadres, in dit geval 0x2D170, geeft de locatie aan van deze functie in het geheugen
