@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Maak de VM aan
-VBoxManage createvm --name "Kali_Linux_VM" --ostype "Debian_64" --register --basefolder "D:/HOGENT/TI Netwerken/Semester 2/Cybersecurity & Virtualisation"
+VBoxManage createvm --name "Kali_Linux_VM_SH" --ostype "Debian_64" --register --basefolder "D:/HOGENT/TI Netwerken/Semester 2/Cybersecurity & Virtualisation"
 
 # Stel geheugen en CPU-kernen in
 VBoxManage modifyvm "Kali_Linux_VM" --memory 4096 --cpus 2
