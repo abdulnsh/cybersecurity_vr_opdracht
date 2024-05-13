@@ -22,12 +22,18 @@ Alle informatie en documentatie is beschikbaar op onze github repo:
 * Download het .vdi bestand voor de [Kali Linux](https://www.osboxes.org/kali-linux/) VM.
 * Download het .ISO bestand voor de [Windows 10-1909](https://archive.org/download/win-10-1909-english-x-64) VM.  
 
-### Stap 2: Vboxmanage automatisatie script's 
+### Stap 2: Aanpassen script naar juiste pad
+* Open beidde scripts.
+* Verander in `windows1909.sh` de variabele `ISO_PATH` naar het juiste pad waar de .ISO is opgeslagen op jouw systeem.
+* Verander in `kali.sh` de variabele `VDI` naar het juiste pad waar de vdi is opgeslagen op jouw systeem.
+  
+### Stap 3: Vboxmanage aanmaken VM's 
 * Open een command prompt naar keuze.
+* Navigeer naar de map waar de script's zich in bevinden.
 * Run het bash script `./kali.sh` om de Kali Linux VM aan te maken.
 * Run het bash script `./windwos1909.sh` om de Windows VM aan te maken.
 
-### Stap 3: Inloggen op de VM's
+### Stap 4: Inloggen op de VM's
 * Kali inloggegevens (default)
 * username: osboxes
 * wachtwoord: osboxes.org
@@ -43,11 +49,11 @@ Alle informatie en documentatie is beschikbaar op onze github repo:
 | Windows 10-1909 | 192.168.1.17 |
 | Kali Linux VM   | 192.168.1.20 |
 
-* Ip adressen kunnen veranderen (best checken)
+Ip adressen kunnen veranderen (best checken)
 
 ## Inleiding
 
-Hier vermelden onze gebruikte bronnen: 
+Onze gebruikte bronnen: 
 - [RCE-script](https://github.com/jamf/CVE-2020-0796-RCE-POC/tree/master)
 - [Vulnerability Scanner](https://github.com/ButrintKomoni/cve-2020-0796)
 - [Extra](https://github.com/jiansiting/CVE-2020-0796-Scanner) (niet nodig, ter info)
