@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # variabelen
-VDI="D:\HOGENT\TI Netwerken\Semester 2\Cybersecurity & Virtualisation\64bit\Kali Linux 2023.4 (64bit).vdi"
+VDI="D:\HOGENT\TI Netwerken\Semester 2\Cybersecurity & Virtualisation\64bit\Kali Linux 2024.1 (64bit).vdi"
 VM_NAME="Kali"
 
 # vm aanmaken
