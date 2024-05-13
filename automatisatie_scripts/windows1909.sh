@@ -11,8 +11,5 @@ VBoxManage modifyvm "$VM_NAME" --memory 4096 --cpus 2
 VBoxManage storagectl "$VM_NAME" --name "SATA Controller" --add sata --controller IntelAhci
 VBoxManage storageattach "$VM_NAME" --storagectl "SATA Controller" --port 0 --device 0 --type dvddrive --medium "$ISO_PATH"
 
-# bridged adapter
-VBoxManage modifyvm "$VM_NAME" --nic1 bridged --bridgeadapter1 "Realtek RTL8852AE WiFi 6 802.11ax PCIe Adapter"
-
 # vm opstarten
 VBoxManage startvm "$VM_NAME"
